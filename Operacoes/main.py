@@ -9,8 +9,7 @@ from datetime import datetime
 st.set_page_config(page_title="🔐 Login", layout="centered")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-DDB_PATH = os.path.join(BASE_DIR, "usuarios.db")
+DB_PATH = os.path.join(BASE_DIR, "usuarios.db")
 
 FUNCOES = [
     "Líder",
@@ -87,7 +86,7 @@ if not st.session_state.logado:
                 st.session_state.logado  = True
                 st.session_state.usuario = usuario
                 st.session_state.funcao  = funcao_login
-                st.rerun()
+                st.experimental_rerun()
     st.stop()
 
 # === PÓS-LOGIN ===
@@ -107,7 +106,7 @@ if st.sidebar.button("Logout"):
     st.session_state.logado   = False
     st.session_state.usuario  = ""
     st.session_state.funcao   = ""
-    st.rerun()
+    st.experimental_rerun()
 
 st.header(f"{cumprimento}, {st.session_state.usuario}!")
 st.write(f"Você está na função **{st.session_state.funcao}** hoje.")
@@ -202,7 +201,6 @@ with st.form("ajuda_quant_form"):
         except ValueError:
             st.error("Por favor, insira um número inteiro válido.")
 
-
 # ————— Histórico de registros auxiliares —————
 st.markdown("**Histórico de registros auxiliares:**")
 conn = sqlite3.connect(DB_PATH)
@@ -247,3 +245,4 @@ if st.session_state.funcao == "Líder":
                 except sqlite3.IntegrityError:
                     st.error("❌ Este nome de usuário já existe.")
                 conn.close()
+
