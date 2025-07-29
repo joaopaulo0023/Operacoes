@@ -8,6 +8,8 @@ from datetime import datetime
 # ————— Configurações —————
 st.set_page_config(page_title="🔐 Login", layout="centered")
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 DDB_PATH = os.path.join(BASE_DIR, "usuarios.db")
 
 FUNCOES = [
