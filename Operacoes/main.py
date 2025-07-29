@@ -86,7 +86,7 @@ if not st.session_state.logado:
                 st.session_state.logado  = True
                 st.session_state.usuario = usuario
                 st.session_state.funcao  = funcao_login
-                st.experimental_rerun()
+                st.rerun()
     st.stop()
 
 # === PÓS-LOGIN ===
