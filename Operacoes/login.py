@@ -51,7 +51,7 @@ def adicionar_usuario(username: str, senha: str):
     conn.close()
 
 # ————— Interface Streamlit —————
-st.title("🔐 Sistema Logístico com IA")
+st.title(" Operações Logístico ")
 
 # Inicializa sessão
 if "logado" not in st.session_state:
