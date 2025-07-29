@@ -17,8 +17,9 @@ if st.session_state.funcao != "Líder":
     st.stop()
 
 # Define caminho absoluto para o banco
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 DB_PATH = os.path.join(BASE_DIR, "usuarios.db")
+conn = sqlite3.connect(DB_PATH
 
 # Garante que a tabela existe (evita erro no deploy)
 def criar_tabela_relatorios():
