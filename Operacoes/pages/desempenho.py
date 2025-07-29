@@ -15,8 +15,9 @@ if st.session_state.funcao != "Líder":
     st.warning("🔒 Apenas líderes podem visualizar esta página.")
     st.stop()
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 DB_PATH = os.path.join(BASE_DIR, "usuarios.db")
+conn = sqlite3.connect(DB_PATH)
 
 try:
     conn = sqlite3.connect(DB_PATH)
