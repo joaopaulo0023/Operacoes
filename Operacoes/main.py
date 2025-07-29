@@ -106,7 +106,7 @@ if st.sidebar.button("Logout"):
     st.session_state.logado   = False
     st.session_state.usuario  = ""
     st.session_state.funcao   = ""
-    st.experimental_rerun()
+    st.rerun()
 
 st.header(f"{cumprimento}, {st.session_state.usuario}!")
 st.write(f"Você está na função **{st.session_state.funcao}** hoje.")
